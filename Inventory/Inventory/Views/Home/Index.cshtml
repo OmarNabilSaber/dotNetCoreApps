@@ -1,0 +1,50 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="row justify-content-center">
+    <div class="col-lg-8">
+        <div class="card shadow-lg">
+            <div class="card-body text-center p-5">
+                <div class="mb-4">
+                    <i class="fas fa-boxes fa-3x text-primary mb-3"></i>
+                    <h1 class="display-4 fw-bold text-primary">Welcome to Inventory</h1>
+                    <p class="lead text-muted">Modern inventory management system for your business</p>
+                </div>
+                
+                <div class="row g-4 mt-4">
+                    <div class="col-md-6">
+                        <div class="card h-100 border-0 bg-dark">
+                            <div class="card-body text-center p-4">
+                                <i class="fas fa-box fa-2x text-info mb-3"></i>
+                                <h5 class="card-title">Product Management</h5>
+                                <p class="card-text text-muted">Efficiently manage your product inventory with ease.</p>
+                                <a asp-controller="Product" asp-action="Index" class="btn btn-outline-primary">
+                                    <i class="fas fa-arrow-right me-2"></i>View Products
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card h-100 border-0 bg-dark">
+                            <div class="card-body text-center p-4">
+                                <i class="fas fa-chart-line fa-2x text-success mb-3"></i>
+                                <h5 class="card-title">Analytics</h5>
+                                <p class="card-text text-muted">Track your inventory performance and insights.</p>
+                                <a href="#" class="btn btn-outline-success">
+                                    <i class="fas fa-chart-bar me-2"></i>View Analytics
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-5">
+                    <p class="text-muted">
+                        To Manage your inventory easily.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

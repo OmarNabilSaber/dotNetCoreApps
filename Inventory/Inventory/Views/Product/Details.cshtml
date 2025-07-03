@@ -1,0 +1,118 @@
+﻿@model Inventory.Models.ProductModel.Product
+
+@{
+    ViewData["Title"] = "Product Details";
+}
+
+<div class="row justify-content-center">
+    <div class="col-lg-8">
+        <div class="card shadow-lg">
+            <div class="card-header bg-info text-white">
+                <h2 class="mb-0">
+                    <i class="fas fa-eye me-2"></i>Product Details
+                </h2>
+            </div>
+            <div class="card-body p-4">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="mb-4">
+                            <label class="form-label text-muted">
+                                <i class="fas fa-barcode me-1"></i>Product Code
+                            </label>
+                            <div class="form-control-plaintext fw-bold fs-5">
+                                @Html.DisplayFor(model => model.Code)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mb-4">
+                            <label class="form-label text-muted">
+                                <i class="fas fa-tag me-1"></i>Product Name
+                            </label>
+                            <div class="form-control-plaintext fw-bold fs-5">
+                                @Html.DisplayFor(model => model.Name)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mb-4">
+                            <label class="form-label text-muted">
+                                <i class="fas fa-dollar-sign me-1"></i>Price
+                            </label>
+                            <div class="form-control-plaintext fw-bold fs-5 text-success">
+                                $@Html.DisplayFor(model => model.Price)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mb-4">
+                            <label class="form-label text-muted">
+                                <i class="fas fa-layer-group me-1"></i>Quantity
+                            </label>
+                            <div class="form-control-plaintext fw-bold fs-5">
+                                @Html.DisplayFor(model => model.Quantity)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+
+                    <div class="col-md-6">
+                        <div class="mb-4">
+                            <label class="form-label text-muted">
+                                <i class="fas fa-align-left me-1"></i>Description
+                            </label>
+                            <div class="form-control-plaintext">
+                                @if (!string.IsNullOrEmpty(Model.Description))
+                                {
+                                    <p class="mb-0">@Html.DisplayFor(model => model.Description)</p>
+                                }
+                                else
+                                {
+                                    <span class="text-muted">No description available</span>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mb-4">
+                            <label class="form-label text-muted">
+                                <i class="fas fa-image me-1"></i>Product Image
+                            </label>
+                            <div class="form-control-plaintext">
+                                @if (!string.IsNullOrEmpty(Model.ImageUrl))
+                                {
+                                    <img src="@Model.ImageUrl" alt="Product Image" class="img-fluid rounded shadow-sm" style="max-height: 200px; max-width: 100%;" />
+                                }
+                                else
+                                {
+                                    <div class="text-center py-4 bg-light rounded" style="max-height: 200px; display: flex; align-items: center; justify-content: center; border: 2px dashed #dee2e6;">
+                                        <div class="text-muted">
+                                            <i class="fas fa-image fa-3x mb-2"></i>
+                                            <p class="mb-0">No Image Available</p>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                
+                <div class="d-flex justify-content-between align-items-center">
+                    <a asp-action="Index" class="btn btn-outline-secondary">
+                        <i class="fas fa-arrow-left me-2"></i>Back to List
+                    </a>
+                    <div class="btn-group">
+                        <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-warning">
+                            <i class="fas fa-edit me-2"></i>Edit
+                        </a>
+                        <a asp-action="Delete" asp-route-id="@Model?.Id" class="btn btn-danger">
+                            <i class="fas fa-trash me-2"></i>Delete
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

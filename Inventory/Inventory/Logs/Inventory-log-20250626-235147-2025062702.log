@@ -1,0 +1,16 @@
+2025-06-27 02:51:47.907 +03:00 [INF] Starting Inventory application...
+2025-06-27 02:51:48.313 +03:00 [DBG] Creating WebApplication builder...
+2025-06-27 02:51:48.416 +03:00 [DBG] Added ControllersWithViews to services...
+2025-06-27 02:51:48.423 +03:00 [DBG] Added DbContext to services...
+2025-06-27 02:51:48.775 +03:00 [DBG] Configuring DbContext options...
+2025-06-27 02:51:48.697 +03:00 [FTL] An error occurred while starting the application
+Microsoft.Extensions.Hosting.HostAbortedException: The host was aborted.
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.ThrowHostAborted()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.OnNext(KeyValuePair`2 value)
+   at System.Diagnostics.DiagnosticListener.Write(String name, Object value)
+   at System.Diagnostics.DiagnosticSource.Write[T](String name, T value)
+   at Microsoft.Extensions.Hosting.HostBuilder.ResolveHost(IServiceProvider serviceProvider, DiagnosticListener diagnosticListener)
+   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
+   at Inventory.Program.Main(String[] args) in E:\Courses\.Net\MyProjects\Inventory\Inventory\Program.cs:line 39
+2025-06-27 02:51:48.816 +03:00 [DBG] Using SQL Server connection string: Server=DESKTOP-IUUECT7;Database=Inventory;Integrated Security=True;TrustServerCertificate=True;

@@ -1,0 +1,113 @@
+@model Inventory.Models.ProductModel.Product
+
+@{
+    ViewData["Title"] = "Create Product";
+}
+
+<div class="row justify-content-center">
+    <div class="col-lg-8">
+        <div class="card shadow-lg">
+            <div class="card-header bg-primary text-white">
+                <h2 class="mb-0">
+                    <i class="fas fa-plus-circle me-2"></i>Create New Product
+                </h2>
+            </div>
+            <div class="card-body p-4">
+                <form asp-action="Create" enctype="multipart/form-data">
+                    <div asp-validation-summary="ModelOnly" class="alert alert-danger">
+                        <i class="fas fa-exclamation-triangle me-2"></i>
+                        Please correct the following errors:
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label asp-for="Code" class="form-label">
+                                    <i class="fas fa-barcode me-1"></i>Product Code
+                                </label>
+                                <input asp-for="Code" class="form-control" placeholder="Enter unique product code" />
+                                <span asp-validation-for="Code" class="text-danger small"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label asp-for="Name" class="form-label">
+                                    <i class="fas fa-tag me-1"></i>Product Name
+                                </label>
+                                <input asp-for="Name" class="form-control" placeholder="Enter product name" />
+                                <span asp-validation-for="Name" class="text-danger small"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label asp-for="Price" class="form-label">
+                                    <i class="fas fa-dollar-sign me-1"></i>Price
+                                </label>
+                                <div class="input-group">
+                                    <span class="input-group-text">$</span>
+                                    <input asp-for="Price" class="form-control" placeholder="0.00" type="number" step="0.01" />
+                                </div>
+                                <span asp-validation-for="Price" class="text-danger small"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label asp-for="Quantity" class="form-label">
+                                    <i class="fas fa-layer-group me-1"></i>Quantity
+                                </label>
+                                <input asp-for="Quantity" class="form-control" placeholder="Enter quantity" type="number" min="0" />
+                                <span asp-validation-for="Quantity" class="text-danger small"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Description" class="form-label">
+                            <i class="fas fa-align-left me-1"></i>Description
+                        </label>
+                        <textarea asp-for="Description" class="form-control" rows="3" placeholder="Enter product description"></textarea>
+                        <span asp-validation-for="Description" class="text-danger small"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="imageFile" class="form-label">
+                            <i class="fas fa-image me-1"></i>Product Image
+                        </label>
+                        @if (Model != null && Model.ImageUrl != null)
+                        {
+                            <div class="mb-2">
+                                <img id="image-Preview" src="@Model.ImageUrl" alt="Current Product Image" class="img-fluid rounded" style="max-height: 200px; max-width: 100%;" />
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="mb-2">
+                                <img id="image-Preview" src="" alt="Current Product Image" class="img-fluid rounded" style="max-height: 200px; max-width: 100%;" hidden/>
+                            </div>
+                        }
+                        <input type="file" id="image-File" name="imageFile" class="form-control" accept=".jpg,.jpeg,.png"/>
+                        <small class="text-muted">Allowed formats: JPG, JPEG, PNG</small><br/>
+                        <span id="image-Error" asp-validation-for="ImageUrl" class="text-danger small"></span>
+                    </div>
+                    
+                    <div class="d-flex justify-content-between align-items-center">
+                        <a asp-action="Index" class="btn btn-outline-secondary">
+                            <i class="fas fa-arrow-left me-2"></i>Back to List
+                        </a>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-save me-2"></i>Create Product
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script src="~/js/product/ImageValidation.js"></script>
+}
